@@ -487,7 +487,14 @@ function install_vim_plugin()
 # 安装ycm插件
 function install_ycm()
 {
-    git clone https://gitee.com/chxuan/YouCompleteMe-clang.git ~/.vim/plugged/YouCompleteMe
+    #  -clang : Maybe for Mac. But can't intall in UbuntuServer 22.04 Arm 64, Error Info: 
+    ## x YouCompleteMe: 
+    ##      Invalid URI: https://gitee.com/chxuan/YouCompleteMe-clang.git
+    ##      Expected:    https://github.com/Valloric/YouCompleteMe.git
+    ##      PlugClean required.    
+    # Search in github , https://github.com/ycm-core/YouCompleteMe is the default first result, Using it and success in Ubuntu ARM server 22.04
+    #git clone https://gitee.com/chxuan/YouCompleteMe-clang.git ~/.vim/plugged/YouCompleteMe
+    git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe
 
     cd ~/.vim/plugged/YouCompleteMe
     distro=`get_linux_distro`
